@@ -1,1 +1,4 @@
-# testingnodeapp
+# Makersbnb
+
+##MVP
+* Tuesday noon
