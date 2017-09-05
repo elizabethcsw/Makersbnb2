@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "elizabethchan",
+    "password": null,
+    "database": "makersbnb-dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "elizabethchan",
+    "password": null,
+    "database": "makersbnb-test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "elizabethchan",
+    "password": null,
+    "database": "makersbnb-prod",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
