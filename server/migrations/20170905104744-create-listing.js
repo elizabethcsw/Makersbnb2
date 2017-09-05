@@ -19,15 +19,15 @@ module.exports = {
       },
       description: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       price: {
         type: Sequelize.FLOAT,
-        allowNull: false,
+        allowNull: true,
       },
       available_dates: {
         type: Sequelize.ARRAY(Sequelize.RANGE(Sequelize.DATEONLY)),
-        allowNull: false,
+        allowNull: true,
       },
       reserve_status: {
         type: Sequelize.BOOLEAN,
@@ -45,7 +45,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      todoId: {
+      userId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {

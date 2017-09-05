@@ -12,15 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     price: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
     },
     available_dates: {
       type: DataTypes.ARRAY(DataTypes.RANGE(DataTypes.DATEONLY)),
-      allowNull: false,
+      allowNull: true,
     },
     reserve_status: {
       type: DataTypes.BOOLEAN,
