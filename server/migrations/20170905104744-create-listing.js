@@ -26,16 +26,18 @@ module.exports = {
         allowNull: true,
       },
       available_dates: {
-        type: Sequelize.ARRAY(Sequelize.RANGE(Sequelize.DATEONLY)),
+        type: Sequelize.DATEONLY,
         allowNull: true,
       },
       reserve_status: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
+        allowNull: true,
       },
       confirm_status: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,
@@ -46,6 +48,7 @@ module.exports = {
         type: Sequelize.DATE,
       },
       userId: {
+        allowNull: true,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {

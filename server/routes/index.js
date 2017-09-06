@@ -58,6 +58,18 @@ app.post('/listing/:userId/items', listingsController.create);
 
 app.post('/users/new', usersController.create);
 
+app.get('/testing', function (req, res) {
+  if(req.session.isVisit) {
+    req.session.isVisit++;
+    req.session.testing = {test: 100}
+    console.log(req.session.testing)
+    res.send('<p>This is the ' + req.session.isVisit + ' time you visit this page</p>');
+  } else {
+    req.session.isVisit = 1;
+    res.send("Welcome, this is your first visit");
+    console.log(req.session);
+  }
+});
 
 app.listen(port, () => {
   console.log(`listening on port ${ port }`);

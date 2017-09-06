@@ -14,9 +14,11 @@ module.exports = {
         console.log("trying to save user to session...");
         // req.session.user = "happy";
         req.session.user = user.dataValues;
+        // console.log(user.dataValues.id);
+        // console.log("end");
+        // req.session.testing = {test: 100}
         console.log(req.session.user);
-        console.log("end");
-        // res.redirect('/listings');
+        res.redirect('/');
       })
       .catch(error => res.status(400).send(error));
       },
