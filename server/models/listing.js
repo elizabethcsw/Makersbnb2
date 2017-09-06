@@ -19,16 +19,18 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
     available_dates: {
-      type: DataTypes.ARRAY(DataTypes.RANGE(DataTypes.DATEONLY)),
+      type: DataTypes.DATEONLY,
       allowNull: true,
     },
     reserve_status: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
+      allowNull: true,
     },
     confirm_status: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
+      allowNull: true,
     },
   });
 
