@@ -16,7 +16,7 @@ module.exports = {
         req.session.user = user.dataValues;
         console.log(req.session.user);
         console.log("end");
-        // res.redirect('/listings');
+        res.redirect('/');
       })
       .catch(error => res.status(400).send(error));
       },
