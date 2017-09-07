@@ -79,12 +79,13 @@ app.get('/homepage', (req, res) => {
 });
 
 app.get('/userhome', (req, res, next) => {
-  User.findAll().then(function(result) {
+  var userName = req.session.user.name;
+  // User.findAll().then(function(result) {
     res.render('users/home', {
-      userss: result
+      userName: userName
     });
   });
-});
+
 
 //user sign up
 app.get('/users/new', (req, res, next) => {

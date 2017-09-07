@@ -1,20 +1,20 @@
 {
   "development": {
-    "username": "deniska",
+    "username": "oliviafrost",
     "password": null,
     "database": "makersbnb-dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "deniska",
+    "username": "oliviafrost",
     "password": null,
     "database": "makersbnb-test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "deniska",
+    "username": "oliviafrost",
     "password": null,
     "database": "makersbnb-prod",
     "host": "127.0.0.1",
