@@ -8,6 +8,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 const usersController = require('../controllers').users;
 const listingsController = require('../controllers').listings;
+const User = require('../models').User;
+const Listing = require('../models').Listing;
 
 // app.engine('html', require('ejs').renderFile);
 
@@ -27,36 +29,76 @@ app.use(session({
   }
 }));
 
+//homepage
 app.get('/', (req, res, next) => {
-  res.render('home');
-  // res.send('\n\nHellllllo!\n\n');
+  Listing.findAll().then(function(result) {
+    res.render('home', {
+      listingss: result
+    });
+  });
 });
 
-app.get('/users/new', (req, res, next) => {
-  res.render('users/signup');
-});
-
-app.get('/sessions/new', (req, res, next) => {
-  res.render('sessions/login');
-});
-
+//fake homepage
 app.get('/homepage', (req, res) => {
   res.send('\n\nHellllllo!\n\n');
 });
 
+//user sign up
+app.get('/users/new', (req, res, next) => {
+  res.render('users/signup');
+});
+
+app.post('/users/new', usersController.create);
+
+//add listings
 app.get('/listings/new', (req, res, next) => {
   res.render('listings/new');
 });
 
-app.get('/listings', (req, res, next) => {
-  res.send('\n\nThese are all the listings\n\n');
+app.post('/listings/new', listingsController.create);
+
+//login
+app.get('/sessions/new', (req, res, next) => {
+    res.render('sessions/login');
+    });
+
+app.post('/sessions', usersController.check);
+
+app.get('/sessions/success', (req, res, next) => {
+  var userEmail = req.session.user.email;
+  console.log("User info is saved in session.  Reading email address in routes/index.js:")
+  console.log(userEmail)
+  res.render('sessions/success', {
+    userEmail: userEmail,
+  });
 });
 
-app.get('/listing', usersController.list);
-app.post('/listing/:userId/items', listingsController.create);
+
+// app.get('/listings', function(req, res, next) {
+//   Listing.findAll().then(function(result) {
+//     res.render('home', {
+//       listingss: result
+//     });
+//   })
+// });
 
 
-app.post('/users/new', usersController.create);
+  // console.log(listingss);
+//   return Listing.findAll({
+//   attributes: ['name', 'location']
+// });
+
+
+// app.get('/listings',listingsController.list);
+
+//*** the below is wrong
+// app.post('/listings/new', (req, res) => {
+//   listingsController.create;
+// });
+
+
+
+
 
 app.get('/testing', function (req, res) {
   if(req.session.isVisit) {
