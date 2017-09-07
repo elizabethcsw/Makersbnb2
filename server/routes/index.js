@@ -20,6 +20,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// all post and get requests, sends them to index.js in controllers which uses listings.js and users.js controllers
+// render syntax is the link to the ejs files to render the views
+
 app.use(session({
   key: 'user_sid',
   secret: 'somerandomstuff',
@@ -82,6 +85,8 @@ app.get('/sessions/success', (req, res, next) => {
 //   })
 // });
 
+app.post('/users/new', usersController.create);
+// listings = session user.create
 
   // console.log(listingss);
 //   return Listing.findAll({
@@ -116,3 +121,5 @@ app.get('/testing', function (req, res) {
 app.listen(port, () => {
   console.log(`listening on port ${ port }`);
 });
+
+

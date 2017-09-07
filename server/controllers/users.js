@@ -19,6 +19,7 @@ module.exports = {
         // req.session.testing = {test: 100}
         console.log("User is saved in session as:");
         console.log(req.session.user);
+        console.log("end");
         res.redirect('/');
       })
       .catch(error => res.status(400).send(error));

@@ -1,3 +1,5 @@
+// sets up table columns etc and defines one to many relationships
+
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
