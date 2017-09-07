@@ -9,6 +9,7 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 var server = require('../server/routes/index');
 var should = chai.should();
+var expect = require('chai').expect
 
 chai.use(chaiHttp);
 
@@ -42,20 +43,38 @@ describe('User can sign up', function() {
 
   before(function(done) {
     browser.visit('/users/new', done);
+    // browser.visit('/', done);
+    // browser.pressButton('Sign Up');
+    // browser.fill('username', 'pm');
+    // browser.fill('name', 'Peter Malark');
+    // browser.fill('email', 'hi@hi.com');
+    // browser.fill('pw', 'iheartke');
+    // browser.fill('pw2', 'iheartke');
+    // browser.pressButton('Sign up');
+    console.log(browser.location.href)
   });
 
   describe('submits form', function() {
-    it('fills in fields', function() {
-      browser.fill('Username', 'pm')
-      browser.fill('Name', 'Peter Malark')
-      browser.fill('Email', 'hi@hi.com')
-      browser.fill('Password', 'iheartke')
-      browesr.fill('Password Confirmation', 'iheartke')
-      browser.pressButton('Sign up')
-      expect(browser.text('header')).to.contain('Hello Peter Malark');
-    });
+    it('fills in fields', function(done) {
+      browser.fill('username', 'pm');
+      browser.fill('name', 'Peter Malark');
+      browser.fill('email', 'hi@hi.com');
+      browser.fill('pw', 'iheartke');
+      browser.fill('pw2', 'iheartke');
+      browser.pressButton('Sign up').then(function() {
+        assert.ok(browser.success);
+        assert.equal(browser.text('h3'), 'Hello Peter Malark');
+      }).then(done, done);
+  //     browser.visit('/userhome', done)
+  //     console.log(browser.location.href)
+  //     expect(browser.html()).to.have.string('Hello Peter Malark');
+  //   });
   });
 });
+
+});
+
+
 
   
 
@@ -81,5 +100,3 @@ describe('User can sign up', function() {
 //     });
 //   });
 // });
-
-
