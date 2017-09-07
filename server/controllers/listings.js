@@ -2,7 +2,7 @@ const Listing = require('../models').Listing;
 
 module.exports = {
   create(req, res, next) {
-    console.log("adding a row in listing.");
+    console.log("...Trying to add a row in listing");
     return Listing
       .create({
         name: req.body.name,
@@ -16,7 +16,7 @@ module.exports = {
       })
       .then(function(listing) {
         // res.status(201).send(user);
-        console.log("added a row in listing.");
+        console.log("...Added a row in the Listings table!");
         // req.session.user = "happy";
         // req.session.user = user.dataValues;
         // console.log(user.dataValues.id);

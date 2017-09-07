@@ -15,3 +15,14 @@
   Player 2: <input type='text' name='name2'>
   <input type='submit' value='Play against each other'></h3>
 </form> -->
+
+<h1>Listings</h1>
+
+<ul id='listings'>
+  <% listingss.forEach(function(listing) { %>
+      <li>Name : <%= listing.name; %></li>
+      Location : <%= listing.location; %>
+      Description : <%= listing.description; %>
+  <% }); %>
+
+</ul>
