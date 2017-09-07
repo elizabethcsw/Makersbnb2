@@ -22,8 +22,10 @@
 <ul id='listings'>
   <% listingss.forEach(function(listing) { %>
       <li>Name : <%= listing.name; %></li>
-      Location : <%= listing.location; %>
-      Description : <%= listing.description; %>
+      <li>Location : <%= listing.location; %></li>
+      <li>Description : <%= listing.description; %></li>
+      <li> Price per night: <%= listing.price; %></li>
+      ---------------------------------------
   <% }); %>
 
 </ul>
