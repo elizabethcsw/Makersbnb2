@@ -1,8 +1,9 @@
+const User = require('../server/models').User;
 var expect = require('chai').expect,
-    assert = require('assert'),
-    Browser = require('zombie'),
-    browser = new Browser(),
-    url = 'http://localhost:3000/';
+assert = require('assert'),
+Browser = require('zombie'),
+browser = new Browser(),
+url = 'http://localhost:3000/';
 
 
 var chai = require('chai');
@@ -40,17 +41,8 @@ describe('User visits signup page', function() {
 describe('User can sign up', function() {
 
   const browser = new Browser();
-
   before(function(done) {
     browser.visit('/users/new', done);
-    // browser.visit('/', done);
-    // browser.pressButton('Sign Up');
-    // browser.fill('username', 'pm');
-    // browser.fill('name', 'Peter Malark');
-    // browser.fill('email', 'hi@hi.com');
-    // browser.fill('pw', 'iheartke');
-    // browser.fill('pw2', 'iheartke');
-    // browser.pressButton('Sign up');
     console.log(browser.location.href)
   });
 
@@ -65,18 +57,40 @@ describe('User can sign up', function() {
         assert.ok(browser.success);
         assert.equal(browser.text('h3'), 'Hello Peter Malark');
       }).then(done, done);
-  //     browser.visit('/userhome', done)
-  //     console.log(browser.location.href)
-  //     expect(browser.html()).to.have.string('Hello Peter Malark');
-  //   });
+    });
   });
 });
 
+describe('User can log in', function() {
+
+  const browser = new Browser();
+
+before(function(done) {
+  User.create({
+        username: 'KE',
+        name: 'Katniss Everdeen',
+        email: 'katniss@district12.com',
+        pw: 12345,
+      })
+      .then(function(user) {
+        browser.visit('/sessions/new', done);
+      })
+      .catch(error => res.status(400).send(error));
+    });
+
+describe('log in', function() {
+  it('user can log in', function(done) {
+    browser.fill('email', 'sam.ell@web.de');
+    browser.fill('pw', '1234');
+    browser.pressButton('Log in').then(function() {
+      assert.equal(browser.text('h1'), 'You have logged in as sam.ell@web.de!');
+    }).then(done, done);
+    });
+  });
 });
 
 
 
-  
 
 
 
