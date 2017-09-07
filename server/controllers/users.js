@@ -11,9 +11,13 @@ module.exports = {
       })
       .then(function(user) {
         // res.status(201).send(user);
-        console.log("trying to save user to session...");
+        console.log("...Trying to save user to session");
         // req.session.user = "happy";
         req.session.user = user.dataValues;
+        // console.log(user.dataValues.id);
+        // console.log("end");
+        // req.session.testing = {test: 100}
+        console.log("User is saved in session as:");
         console.log(req.session.user);
         console.log("end");
         res.redirect('/');
@@ -25,6 +29,25 @@ module.exports = {
   return User
     .all()
     .then(users => res.status(200).send(users))
+    .catch(error => res.status(400).send(error));
+
+  },
+
+  check(req, res) {
+  return User
+    .findOne({
+      where: {
+              email: req.body.email,
+              pw: req.body.pw
+            }
+    })
+    .then(function(user) {
+      console.log("...Found a matching user!");
+      req.session.user = user.dataValues;
+      // console.log(user.dataValues);
+      // req.session.testing = {test: 100}
+      res.redirect('/sessions/success');
+    })
     .catch(error => res.status(400).send(error));
 
   },

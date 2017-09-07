@@ -16,7 +16,15 @@
   <input type='submit' value='Play against each other'></h3>
 </form> -->
 
-<!--listings do
-  display name, locations ....-->
-
   
+<h1>Listings</h1>
+
+<ul id='listings'>
+  <% listingss.forEach(function(listing) { %>
+      <li>Name : <%= listing.name; %></li>
+      Location : <%= listing.location; %>
+      Description : <%= listing.description; %>
+  <% }); %>
+
+</ul>
+
