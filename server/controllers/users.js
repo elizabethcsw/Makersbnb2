@@ -20,7 +20,7 @@ module.exports = {
         console.log("User is saved in session as:");
         console.log(req.session.user);
         console.log("end");
-        res.redirect('/');
+        res.redirect('/userhome');
       })
       .catch(error => res.status(400).send(error));
       },

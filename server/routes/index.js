@@ -1,4 +1,36 @@
 
+// const express = require('express');
+// var models = require('../models');
+// var cookieParser = require('cookie-parser')
+// var session = require('express-session')
+// const bodyParser = require('body-parser');
+// const app = express();
+// const port = process.env.PORT || 3000;
+// const usersController = require('../controllers').users;
+// const listingsController = require('../controllers').listings;
+// const User = require('../models').User;
+// const Listing = require('../models').Listing;
+
+// // app.engine('html', require('ejs').renderFile);
+
+// app.set('views',  __dirname + '/../views');
+// app.set('view engine', 'ejs');
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(cookieParser());
+
+// // all post and get requests, sends them to index.js in controllers which uses listings.js and users.js controllers
+// // render syntax is the link to the ejs files to render the views
+
+// app.use(session({
+//   key: 'user_sid',
+//   secret: 'somerandomstuff',
+//   resave: false,
+//   cookie: {
+//     expires: 600000
+//   }
+// }));
 const express = require('express');
 var models = require('../models');
 var cookieParser = require('cookie-parser')
@@ -11,7 +43,7 @@ const listingsController = require('../controllers').listings;
 const User = require('../models').User;
 const Listing = require('../models').Listing;
 
-// app.engine('html', require('ejs').renderFile);
+// app.engine(‘html’, require(‘ejs’).renderFile);
 
 app.set('views',  __dirname + '/../views');
 app.set('view engine', 'ejs');
@@ -46,12 +78,23 @@ app.get('/homepage', (req, res) => {
   res.send('\n\nHellllllo!\n\n');
 });
 
+app.get('/userhome', (req, res, next) => {
+  User.findAll().then(function(result) {
+    res.render('users/home', {
+      userss: result
+    });
+  });
+});
+
 //user sign up
 app.get('/users/new', (req, res, next) => {
   res.render('users/signup');
 });
 
 app.post('/users/new', usersController.create);
+// app.get('/userhome', (req, res, next) => {
+  // res.render('users/home') 
+// })
 
 //add listings
 app.get('/listings/new', (req, res, next) => {
@@ -85,7 +128,7 @@ app.get('/sessions/success', (req, res, next) => {
 //   })
 // });
 
-app.post('/users/new', usersController.create);
+//app.post('/users/new', usersController.create);
 // listings = session user.create
 
   // console.log(listingss);
