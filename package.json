@@ -31,7 +31,8 @@
     "pg": "^7.3.0",
     "pg-hstore": "^2.3.2",
     "request": "^2.81.0",
-    "sequelize": "^4.8.0"
+    "sequelize": "^4.8.0",
+    "static": "^2.0.0"
   },
   "devDependencies": {
     "chai": "^3.2.0",
