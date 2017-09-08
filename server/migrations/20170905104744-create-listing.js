@@ -51,6 +51,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      guestId: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+      },
       userId: {
         allowNull: true,
         type: Sequelize.INTEGER,
