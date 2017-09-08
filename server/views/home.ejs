@@ -6,17 +6,9 @@
 
 <a href="/listings/new" class="btn">Add a listing</a>
 
-<!-- <form action='/pick_one' method='post'>
-  <h3>Player 1: <input type='text' name='name0'>
-  <input type='submit' value='Play Against Master'>
-</form></h3>
-<form action='/pick_two' method='post'>
-  <h3>Player 1: <input type='text' name='name1'>
-  Player 2: <input type='text' name='name2'>
-  <input type='submit' value='Play against each other'></h3>
-</form> -->
 
-  
+
+
 <h1>Listings</h1>
 
 <ul id='listings'>
@@ -25,8 +17,15 @@
       <li>Location : <%= listing.location; %></li>
       <li>Description : <%= listing.description; %></li>
       <li> Price per night: <%= listing.price; %></li>
+      <!-- <% var url =' /bookig' + listing.id + '/success'%>
+      <a href=<%= url %> class="btn">book</a> -->
+
+      <form action='/booking/success' method='post'>
+        <input type='hidden' name='listingId' value="<%= listing.id %>" >
+        <input type='submit' value="Submit" >
+      </form>
+
       ---------------------------------------
   <% }); %>
 
 </ul>
-
