@@ -38,6 +38,10 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false,
       allowNull: true,
     },
+    guestId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
   });
 
   Listing.associate = (models) => {

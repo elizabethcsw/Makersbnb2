@@ -142,20 +142,26 @@ app.get('/about', function(req, res) {
 // booking success page
 app.post('/booking/success', function(req, res, next) {
   var reserved_listingId = req.body.listingId
-  Listing
-    .findOne({
+console.log("jo")
+
+  Listing.findOne({
       where: {
               id: reserved_listingId,
             }
     })
     .then(function(listing) {
-      console.log("...Found a matching listing!");
-      req.session.listing = listing.dataValues;
-      // res.redirect('/booking/success');
-      var reserved_listing_name = req.session.listing.name
-      console.log(reserved_listing_name);
-      res.render('booking/success', {
-        reserved_listing_name: reserved_listing_name
+      console.log(listing)
+      return listing.update({
+          guestId: req.session.user.id
+        })
+        .then(function(){
+        req.session.listing = listing.dataValues;
+        console.log(req.session.listing);
+        var reserved_listing_name = req.session.listing.name
+        console.log(reserved_listing_name);
+        res.render('booking/success', {
+          reserved_listing_name: reserved_listing_name
+        });
       });
     })
     .catch(error => res.status(400).send(error));

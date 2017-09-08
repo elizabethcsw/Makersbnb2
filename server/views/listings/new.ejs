@@ -28,7 +28,7 @@
       .on( "change", function() {
         from.datepicker( "option", "maxDate", getDate( this ) );
       });
- 
+
     function getDate( element ) {
       var date;
       try {
@@ -36,17 +36,17 @@
       } catch( error ) {
         date = null;
       }
- 
+
       return date;
     }
   } );
   </script>
 </head>
 <body>
- 
+
 <form action='/listings/new' method='post'>
   <h3>Name: <input type='text' name='name' value='' required></h3>
-  <h3>Location: <input type='text' name='location' value='' required></h3>\
+  <h3>Location: <input type='text' name='location' value='' required></h3>
   <h3>Description: <input type='text' name='description' value='' required></h3>
   <h3>Price per night: <input type='float' name='price'></h3>
   <!-- <h3>available_dates: <input type='text' name='available_dates'></h3> -->
@@ -57,14 +57,14 @@
   <input type='submit' value='Add'>
 </form>
 
- 
- 
+
+
 </body>
 </html>
 
 
 
-<!-- 
+<!--
 
 
 

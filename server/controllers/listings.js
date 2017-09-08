@@ -14,6 +14,8 @@ module.exports = {
         reserve_status: req.body.reserve_status,
         confirm_status: req.body.confirm_status,
         userId: req.session.user.id,
+        //guestId: 
+
       })
       .then(function(listing) {
         // res.status(201).send(user);
