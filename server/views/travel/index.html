@@ -191,173 +191,77 @@
 										</div>
 									 </div>
 
+
+
 									 <div role="tabpanel" class="tab-pane" id="hotels">
 									 	<div class="row">
 											<div class="col-xxs-12 col-xs-12 mt">
+												<form action='/users/new' method='post'>
 												<div class="input-field">
 													<!-- <label for="from">Email:</label> -->
-													<input type="text" class="form-control" id="from-place" placeholder="Email address"/>
+													<input type='email' name='email' value='' required  class="form-control" id="from-place" placeholder="Email address"/>
 												</div>
 											</div>
 											<div class="col-xxs-12 col-xs-12 mt">
 												<div class="input-field">
 													<!-- <label for="from">Password:</label> -->
-													<input type="text" class="form-control" id="from-place" placeholder="First Name"/>
+													<input type='text' name='username' value='' required  class="form-control" id="from-place" placeholder="User Name"/>
 												</div>
 											</div>
 											<div class="col-xxs-12 col-xs-12 mt">
 												<div class="input-field">
 													<!-- <label for="from">Password:</label> -->
-													<input type="text" class="form-control" id="from-place" placeholder="Last Name"/>
+													<input type='text' name='name' class="form-control" id="from-place" placeholder="Name"/>
 												</div>
 											</div>
 											<div class="col-xxs-12 col-xs-12 mt">
 												<div class="input-field">
 													<!-- <label for="from">Password:</label> -->
-													<input type="text" class="form-control" id="from-place" placeholder="Password"/>
+													<input input type='text' name='pw' class="form-control" id="from-place" placeholder="Password"/>
 												</div>
 											</div>
 											<div class="col-xxs-12 col-xs-12 mt">
 												<div class="input-field">
 													<!-- <label for="from">Password Confirmation</label> -->
-													<input type="text" class="form-control" id="from-place" placeholder="Password Confirmation"/>
+													<input type='text' name='pw2' class="form-control" id="from-place" placeholder="Password Confirmation"/>
 												</div>
 											</div>
-											<!-- <div class="col-xxs-12 col-xs-6 mt alternate"> -->
-												<!-- <div class="input-field">
-													<label for="date-start">Return:</label>
-													<input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
-												</div> -->
-											<!-- </div> -->
-											<!-- <div class="col-xxs-12 col-xs-6 mt alternate"> -->
-												<!-- <div class="input-field">
-													<label for="date-end">Check Out:</label>
-													<input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
-												</div> -->
-											<!-- </div> -->
-											<!-- <div class="col-sm-12 mt"> -->
-												<!-- <section>
-													<label for="class">Rooms:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1</option>
-														<option value="economy">1</option>
-														<option value="first">2</option>
-														<option value="business">3</option>
-													</select>
-												</section> -->
-											<!-- </div> -->
-											<!-- <div class="col-xxs-12 col-xs-6 mt"> -->
-												<!-- <section>
-													<label for="class">Adult:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section> -->
-											<!-- </div> -->
-											<!-- <div class="col-xxs-12 col-xs-6 mt"> -->
-												<!-- <section>
-													<label for="class">Children:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select> -->
-												<!-- </section> -->
-											<!-- </div> -->
+
 											<div class="col-xs-12">
-												<input type="submit" class="btn btn-primary btn-block" value="Sign up">
+												<input type="submit"
+											 	class="btn btn-primary btn-block" value="Sign up">
 											</div>
 										</div>
 									 </div>
+									 </form>
 
 									 <div role="tabpanel" class="tab-pane" id="packages">
 									 	<div class="row">
 											<div class="col-xxs-12 col-xs-12 mt">
 												<div class="input-field">
-													<!-- <label for="from">Email:</label> -->
-													<input type="text" class="form-control" id="from-place" placeholder="Kay@lovelace.com"/>
+
+
+													<form action='/sessions' method='post'>
+
+													<input type='email' name='email' value='' required class="form-control" id="from-place" placeholder="Kay@lovelace.com"/>
 												</div>
 											</div>
 											<div class="col-xxs-12 col-xs-12 mt">
 												<div class="input-field">
 													<!-- <label for="from">Password:</label> -->
-													<input type="text" class="form-control" id="from-place" placeholder="Password"/>
+													<input type="text"
+													name='pw' class="form-control" id="from-place" placeholder="Password"/>
 												</div>
 											</div>
-											<!-- <div class="col-xxs-12 col-xs-6 mt">
-												<div class="input-field">
-													<label for="from">City:</label>
-													<input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA"/>
-												</div>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt">
-												<div class="input-field">
-													<label for="from">Destination:</label>
-													<input type="text" class="form-control" id="to-place" placeholder="Tokyo, Japan"/>
-												</div>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt alternate">
-												<div class="input-field">
-													<label for="date-start">Departs:</label>
-													<input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
-												</div>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt alternate">
-												<div class="input-field">
-													<label for="date-end">Return:</label>
-													<input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
-												</div>
-											</div>
-											<div class="col-sm-12 mt">
-												<section>
-													<label for="class">Rooms:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1</option>
-														<option value="economy">1</option>
-														<option value="first">2</option>
-														<option value="business">3</option>
-													</select>
-												</section>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label for="class">Adult:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label for="class">Children:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section>
-											</div> -->
 											<div class="col-xs-12">
-												<input type="submit" class="btn btn-primary btn-block" value="Log in">
+												<input type="submit" class="btn btn-primary btn-block" href= "/userhome" value="Log in">
 											</div>
 										</div>
 									 </div>
 									</div>
-
 								</div>
 							</div>
+							</form>
 							<div class="desc2 animate-box">
 								<div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
 									<!-- <p>HandCrafted by <a href="The Wolf Pack" target="_blank" class="fh5co-site-name">Makers Academy: The Wolf Pack</a></p> -->
