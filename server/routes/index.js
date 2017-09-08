@@ -45,12 +45,15 @@ const Listing = require('../models').Listing;
 
 // app.engine(‘html’, require(‘ejs’).renderFile);
 
+// app.set('views',  __dirname + '/../../public');
 app.set('views',  __dirname + '/../views');
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// app.use( express.static(__dirname + "/../../public" ) );
+app.use( express.static(__dirname + "/../views" ) );
 
 // all post and get requests, sends them to index.js in controllers which uses listings.js and users.js controllers
 // render syntax is the link to the ejs files to render the views
@@ -94,7 +97,7 @@ app.get('/users/new', (req, res, next) => {
 
 app.post('/users/new', usersController.create);
 // app.get('/userhome', (req, res, next) => {
-  // res.render('users/home') 
+  // res.render('users/home')
 // })
 
 //add listings
@@ -118,6 +121,22 @@ app.get('/sessions/success', (req, res, next) => {
   res.render('sessions/success', {
     userEmail: userEmail,
   });
+});
+
+//testing
+// app.get('/testing', function(req, res) {
+//     res.render('pages/index');
+// });
+
+app.get('/travel', function(req, res) {
+    res.render('travel/index');
+});
+
+
+
+// about page
+app.get('/about', function(req, res) {
+    res.render('pages/about');
 });
 
 
@@ -165,5 +184,3 @@ app.get('/testing', function (req, res) {
 app.listen(port, () => {
   console.log(`listening on port ${ port }`);
 });
-
-
