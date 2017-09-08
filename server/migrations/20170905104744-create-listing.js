@@ -25,7 +25,11 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: true,
       },
-      available_dates: {
+      from_dates: {
+        type: Sequelize.DATEONLY,
+        allowNull: true,
+      },
+      to_dates: {
         type: Sequelize.DATEONLY,
         allowNull: true,
       },
