@@ -1,3 +1,5 @@
+const User = require('../server/models').User;
+
 var expect = require('chai').expect,
     assert = require('assert'),
     Browser = require('zombie'),
@@ -43,14 +45,6 @@ describe('User can sign up', function() {
 
   before(function(done) {
     browser.visit('/users/new', done);
-    // browser.visit('/', done);
-    // browser.pressButton('Sign Up');
-    // browser.fill('username', 'pm');
-    // browser.fill('name', 'Peter Malark');
-    // browser.fill('email', 'hi@hi.com');
-    // browser.fill('pw', 'iheartke');
-    // browser.fill('pw2', 'iheartke');
-    // browser.pressButton('Sign up');
     console.log(browser.location.href)
   });
 
@@ -65,18 +59,64 @@ describe('User can sign up', function() {
         assert.ok(browser.success);
         assert.equal(browser.text('h3'), 'Hello Peter Malark');
       }).then(done, done);
-  //     browser.visit('/userhome', done)
-  //     console.log(browser.location.href)
-  //     expect(browser.html()).to.have.string('Hello Peter Malark');
-  //   });
+    });
   });
 });
 
+describe('User can log in', function() {
+
+ const browser = new Browser();
+
+before(function(done) {
+  User.create({
+        username: 'KE',
+        name: 'Katniss Everdeen',
+        email: 'katniss@district12.com',
+        pw: 12345,
+      })
+      .then(function(user) {
+        browser.visit('/sessions/new', done);
+      })
+      .catch(error => res.status(400).send(error));
+    });
+
+describe('log in', function() {
+  it('user can log in', function(done) {
+    browser.fill('email', 'katniss@district12.com');
+    browser.fill('pw', 12345);
+    browser.pressButton('Log in').then(function() {
+      assert.equal(browser.text('h1'), 'You have logged in as katniss@district12.com!');
+    }).then(done, done);
+    });
+  });
 });
 
+describe('User can reserve a place', function() {
 
+ const browser = new Browser();
 
-  
+  before(function(done) {
+    User.create({
+          username: 'KE',
+          name: 'Katniss Everdeen',
+          email: 'katniss@district12.com',
+          pw: 12345,
+        })
+        .then(function(user) {
+          browser.visit('/', done);
+        })
+        .catch(error => res.status(400).send(error));
+      });
+
+  describe('logged in user', function(){
+    it('can request a place to stay', function(done){
+      browser.clickLink('Reserve').then(function(){
+        assert.equal(browser.text('body'),"Your booking is confirmed!");
+      }).then(done, done);
+    });
+  });
+});
+
 
 
 

@@ -49,6 +49,5 @@ module.exports = {
       res.redirect('/sessions/success');
     })
     .catch(error => res.status(400).send(error));
-
   },
 };

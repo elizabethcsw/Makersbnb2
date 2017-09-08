@@ -139,6 +139,39 @@ app.get('/about', function(req, res) {
     res.render('pages/about');
 });
 
+// booking success page
+app.post('/booking/success', function(req, res, next) {
+  var reserved_listingId = req.body.listingId
+  Listing
+    .findOne({
+      where: {
+              id: reserved_listingId,
+            }
+    })
+    .then(function(listing) {
+      console.log("...Found a matching listing!");
+      req.session.listing = listing.dataValues;
+      // res.redirect('/booking/success');
+      var reserved_listing_name = req.session.listing.name
+      console.log(reserved_listing_name);
+      res.render('booking/success', {
+        reserved_listing_name: reserved_listing_name
+      });
+    })
+    .catch(error => res.status(400).send(error));
+
+  // req.session.listing = req.body.listing
+
+});
+
+
+// app.get('/', (req, res, next) => {
+//   Listing.findAll().then(function(result) {
+//     res.render('home', {
+//       listingss: result
+//     });
+//   });
+// });
 
 // app.get('/listings', function(req, res, next) {
 //   Listing.findAll().then(function(result) {
