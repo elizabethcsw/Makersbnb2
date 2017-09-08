@@ -17,14 +17,13 @@
       <li>Location : <%= listing.location; %></li>
       <li>Description : <%= listing.description; %></li>
       <li> Price per night: <%= listing.price; %></li>
-      <!-- <% var url =' /bookig' + listing.id + '/success'%>
-      <a href=<%= url %> class="btn">book</a> -->
+      <li> Available from: <%= listing.from_dates; %></li>
+      <li> to: <%= listing.to_dates; %></li>
 
       <form action='/booking/success' method='post'>
         <input type='hidden' name='listingId' value="<%= listing.id %>" >
         <input type='submit' value="Submit" >
       </form>
-
       ---------------------------------------
   <% }); %>
 
